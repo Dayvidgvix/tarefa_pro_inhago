@@ -28,14 +28,14 @@ h1 {
 .card::after {
 	content: "";
   display: block;
-  width: 50%;
+  width: 45%;
   height: 45%;
   border-radius: 100%;
   background-color: #fff;
   opacity: .7;
   position: absolute;
   top: 15%;
-  left: 25%;
+  left: 27.5%;
 }
 
 .steel {
@@ -43,11 +43,11 @@ h1 {
 }
 
 .fire {
-	background-color: #ffe6e6;
+	background-color: #ffdfd5;
 }
 
 .grass {
-	background-color: #DEFDE0;
+	background-color: #daffc5;
 }
 
 .electric {
@@ -55,11 +55,11 @@ h1 {
 }
 
 .water, .ice {
-	background-color: #DEF3FD;
+	background-color: #d7edff;
 }
 
 .ground {
-	background-color: #f4e7da;
+	background-color: #dfd0c4;
 }
 
 .rock {
@@ -71,11 +71,11 @@ h1 {
 }
 
 .poison {
-	background-color: #c3eecc;
+	background-color: #dbd5ff;
 }
 
 .bug {
-	background-color: #e6d5bd;
+	background-color: #f8e4d2;
 }
 
 .dragon {
@@ -95,7 +95,7 @@ h1 {
 }
 
 .normal {
-	background-color: #F5F5F5;
+	background-color: #eeeeee;
 }
 
 .ghost{

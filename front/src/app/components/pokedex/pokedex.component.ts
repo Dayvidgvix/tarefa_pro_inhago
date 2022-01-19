@@ -10,14 +10,14 @@ import { Component, OnInit } from '@angular/core';
 export class PokedexComponent implements OnInit {
 
   pokemons: any
-  ivo = ["one", "two", "tree"]
+  
   
 
   constructor(private pokeService: PokedexService) { 
         
   }
 
-  async ngOnInit() {
+  ngOnInit() {
     this.pokemons = this.pokeService.allPokemons
     console.log(this.pokemons)
   }
