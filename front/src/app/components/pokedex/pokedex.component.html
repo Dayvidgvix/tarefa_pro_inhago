@@ -1,10 +1,10 @@
 <div class="container">
     <h1>Pokedex</h1>
     <ul  class="pokedex" >
-        <li  *ngFor="let pokemon of pokemons" class="card {{ pokemon?.types[0].type.name }}">
-            <img class="card-image" src="https://cdn.traction.one/pokedex/pokemon/{{pokemon?.id}}.png" alt="">
-            <h2 class="card-title">{{pokemon?.id}}. {{pokemon?.name}}</h2>
-            <p class="card-subtitle">{{ pokemon?.types[0].type.name }}</p>
+        <li *ngFor="let pokemon of pokemons" class="card {{ pokemon?.types[0].type.name }}" routerLink="/details/{{pokemon?.id}}">
+            <img *ngIf="pokemon?.id" class="card-image" src="https://cdn.traction.one/pokedex/pokemon/{{pokemon?.id}}.png" alt="">
+            <h2 class="card-title">{{pokemon?.name}}</h2>
+            <span *ngFor=" let type of pokemon?.types" class="card-subtitle {{type.type.name}}-type" >{{ type.type.name }}</span>
         </li>
         
     </ul>

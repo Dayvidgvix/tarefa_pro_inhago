@@ -11,21 +11,32 @@ import { Observable } from 'rxjs';
 export class PokedexService {
   id?: number
   baseUrl = 'https://pokeapi.co/api/v2/pokemon/'
-  allPokemons: any[]
+  allPokemons: any[] = []
 
   constructor(private http: HttpClient) { 
-    this.allPokemons = this.getAllPokemons()
+    
   }
 
   getPokemon(id:number): Observable<any>{
     return this.http.get<any>(`${this.baseUrl}${id}`)
   }
 
+  getPokemon2(id:number){
+    return this.http.get<any>(`${this.baseUrl}${id}`)
+  }
+
+
   getAllPokemons(): Array<any>{
     let allPokemonss: any[] = []
-    for(let i=0; i<151; i++){
-       this.getPokemon(i+1).subscribe(poke => allPokemonss[i] = poke)
-      }  
+    for(let i=0; i<251; i++){
+       this.getPokemon(i+1).subscribe(poke => 
+        allPokemonss[i] = {
+          name: poke.name, 
+          id: poke.id, 
+          types: poke.types
+        }
+        )
+      } 
     return allPokemonss
   }
 

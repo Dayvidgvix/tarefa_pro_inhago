@@ -9,16 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PokedexComponent implements OnInit {
 
-  pokemons: any
-  
-  
+  pokemons: any = []
+  teste = [2,3,4,5]
 
-  constructor(private pokeService: PokedexService) { 
-        
+
+
+  constructor(private pokeService: PokedexService) {
+
   }
 
-  ngOnInit() {
-    this.pokemons = this.pokeService.allPokemons
+  async ngOnInit() {
+    await this.iniciarArray()
+    // console.log(this.pokemons)
+  }
+
+  async iniciarArray() {
+    this.pokemons = this.pokeService.getAllPokemons().reverse()
     console.log(this.pokemons)
   }
 
