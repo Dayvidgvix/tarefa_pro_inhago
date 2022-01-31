@@ -9,23 +9,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PokedexComponent implements OnInit {
 
-  pokemons: any = []
-  teste = [2,3,4,5]
-
-
+  pokemons: Pokemon[] = [];
 
   constructor(private pokeService: PokedexService) {
-
+    
   }
 
   async ngOnInit() {
-    await this.iniciarArray()
-    // console.log(this.pokemons)
+    this.pokemons = await this.getAllPokemons()
   }
 
-  async iniciarArray() {
-    this.pokemons = this.pokeService.getAllPokemons().reverse()
-    console.log(this.pokemons)
+  async getAllPokemons(): Promise<Pokemon[]>{
+    let allPokemonss: Pokemon[] = []
+
+    for(let i = 1; i <= 151; i++){
+       const response = await this.pokeService.getPokemon(i)
+
+       const types = response.types.map((index: any) => index.type.name)
+
+       const poke: Pokemon = {
+        id: response.id,
+        name: response.name,
+        types: types
+      }
+
+      allPokemonss.push(poke)
+
+      } 
+    return allPokemonss;
   }
 
 }

@@ -1,0 +1,7 @@
+git status
+git add .
+git status
+git commit -m "bla bla bla"
+git push -u origin master
+login Dayvidgvix
+senha: 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

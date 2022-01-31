@@ -22,7 +22,7 @@ export class DetailsComponent implements OnInit {
 
   async getPokemon(){
     const id = this.activeRoute.snapshot.params['id'];
-    this.service.getPokemon(id ).subscribe(i => {this.poke = i; console.log(this.poke)} )    
+    this.service.getPokemon(id ).then(i => {this.poke = i; console.log(this.poke)} )    
   }
 
 }

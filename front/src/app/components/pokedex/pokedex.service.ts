@@ -17,27 +17,8 @@ export class PokedexService {
     
   }
 
-  getPokemon(id:number): Observable<any>{
-    return this.http.get<any>(`${this.baseUrl}${id}`)
-  }
-
-  getPokemon2(id:number){
-    return this.http.get<any>(`${this.baseUrl}${id}`)
-  }
-
-
-  getAllPokemons(): Array<any>{
-    let allPokemonss: any[] = []
-    for(let i=0; i<251; i++){
-       this.getPokemon(i+1).subscribe(poke => 
-        allPokemonss[i] = {
-          name: poke.name, 
-          id: poke.id, 
-          types: poke.types
-        }
-        )
-      } 
-    return allPokemonss
+  getPokemon(id:number): Promise<any>{
+    return this.http.get<any>(`${this.baseUrl}${id}`).toPromise()
   }
 
 }
